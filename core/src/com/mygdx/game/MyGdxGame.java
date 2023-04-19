@@ -19,6 +19,8 @@ public class MyGdxGame extends ApplicationAdapter{
 
     private Skin skin;
     private Skin skin2;
+    private Skin skin3;
+    private Skin skin4;
     private TextButton button;
     private TextButton button2;
     private TextButton button3;
@@ -36,13 +38,15 @@ public class MyGdxGame extends ApplicationAdapter{
 
         //load a skin(a collection of styles for objects)
         // skin is from gdx-skins (https://github.com/czyzby/gdx-skins)
-        skin = new Skin(Gdx.files.internal("skin//glassy-ui.json"));
-        skin2 = new Skin(Gdx.files.internal("skin//neon-ui.json"));
+        skin = new Skin(Gdx.files.internal("glassy//skin//glassy-ui.json"));
+        skin2 = new Skin(Gdx.files.internal("neon//skin//neon-ui.json"));
+        skin3 = new Skin(Gdx.files.internal("terra-mother//skin//terra-mother-ui.json"));
+        skin4 = new Skin(Gdx.files.internal("rainbow//skin//rainbow-ui.json"));
         //create your button
-        button = new TextButton("Button1", skin);
-        button3 = new TextButton("Button1", skin);
-        button2 = new TextButton("Button1", skin2);
-        Label nameLabel = new Label("Name:", skin);
+        button = new TextButton("play", skin);
+        button3 = new TextButton("settings", skin);
+        button2 = new TextButton("exit", skin2);
+        Label nameLabel = new Label("Aventura unui babuin",skin4);
         TextField nameText = new TextField(" ",skin);
         Label addressLabel = new Label("Address:", skin);
         TextField addressText = new TextField("" ,skin);
@@ -50,17 +54,33 @@ public class MyGdxGame extends ApplicationAdapter{
         //add it to your stage
         
         table = new Table(skin);
+       button3.setScale(4f);
+    
        
-       
-        table.add(button);              // Row 0, column 0.
-       
-        table.row(); 
+       button3.getLabel().setFontScale(0.5f);
+       nameLabel.setFontScale(2);
+        table.add(nameLabel).height(200).fill();  
+        table.row().height(50); 
+        table.add();
+        table.row().height(100);// Row 0, column 0.
+       table.add(button).fill();
+       table.row().height(50); 
+       table.add();
+        table.row().height(100); 
         				// Move to next row.
-        table.add(button2);      
+        table.add(button3).fill(); 
+        table.row().height(50); 
+        table.add();
+        table.row().height(100);
+        table.add(button2).fill();
         	// Row 1, column 0.
-        table.top().left();
+       
+        table.center().top();
         table.setFillParent(true);
+        //adaugare linii ajutatoare pentru a vedea layout-ul
         table.debug();
+        
+        button3.setScale(40);
         
         stage.addActor(table);
         
@@ -78,7 +98,9 @@ public class MyGdxGame extends ApplicationAdapter{
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 System.out.println("babuin");
-                table.add(button3);
+             
+               
+               
             }
         });
 
