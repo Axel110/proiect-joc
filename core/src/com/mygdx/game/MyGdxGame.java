@@ -43,7 +43,7 @@ public class MyGdxGame extends ApplicationAdapter{
         skin3 = new Skin(Gdx.files.internal("terra-mother//skin//terra-mother-ui.json"));
         skin4 = new Skin(Gdx.files.internal("rainbow//skin//rainbow-ui.json"));
         //create your button
-        button = new TextButton("play", skin);
+        button = new TextButton("play", skin4);
         button3 = new TextButton("settings", skin);
         button2 = new TextButton("exit", skin2);
         Label nameLabel = new Label("Aventura unui babuin",skin4);
@@ -54,7 +54,7 @@ public class MyGdxGame extends ApplicationAdapter{
         //add it to your stage
         
         table = new Table(skin);
-       button3.setScale(4f);
+     
     
        
        button3.getLabel().setFontScale(0.5f);
@@ -80,14 +80,14 @@ public class MyGdxGame extends ApplicationAdapter{
         //adaugare linii ajutatoare pentru a vedea layout-ul
         table.debug();
         
-        button3.setScale(40);
+       
         
         stage.addActor(table);
         
         
       
         // add a listener to your buttons so it does something when clicked
-        button.addListener(new ChangeListener() {
+        button3.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 System.out.println("I was clicked");
@@ -98,6 +98,15 @@ public class MyGdxGame extends ApplicationAdapter{
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 System.out.println("babuin");
+             
+               
+               
+            }
+        });
+        button.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                System.out.println("babuin se joaca");
              
                
                
